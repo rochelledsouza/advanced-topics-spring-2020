@@ -8,27 +8,27 @@
 
 section#intro {
     grid-area: intro;
-    background-color: var(--color-highlight1);
-    border: 1px solid var(--color-custom-borders);
+    background-color: lightgoldenrodyellow;
+    border: 1px solid navy;
 }
 
 
 section#map_canvas {
     grid-area: map;
-    background-color: var(--color-highlight2);
-    border: 1px solid var(--color-custom-borders);
+    background-color: rgb(211, 223, 223);
+    border: 1px solid navy;
 }
 
 section#legend {
     grid-area: legend;
-    background-color: var(--color-highlight2);
-    border: 1px solid var(--color-custom-borders);
+    background-color:  rgb(211, 223, 223);
+    border: 1px solid navy;
 }
 
 section#maintext {
     grid-area: main;
-    background-color: var(--color-highlight1);
-    border: 1px solid var(--color-custom-borders);
+    background-color:  lightgoldenrodyellow;
+    border: 1px solid navy;
 }
 
 /* we use an extra div here to allow the "legend" text to sit by itself */
@@ -44,10 +44,11 @@ div#map_legend {
 
 }
 div#map_legend div.pointer {
-    border: 1px black solid;
+    border: 1px navy solid;
     border-radius: 10px;
     margin-left: 5px;
     margin-right: 5px;
+    background-color: rgb(168, 193, 226);
     /* flex-basis: 500px; */
     cursor:pointer;
 }
@@ -124,10 +125,10 @@ button.rounded {
   border: 1px black solid;
 }
 button#hide {
-  background:orange;
+  background:red;
 }
 button#reset {
-  background:green;
+  background: orangered;
 }
 
 /* use these last few to style the text inside the
