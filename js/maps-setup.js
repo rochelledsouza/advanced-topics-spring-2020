@@ -58,7 +58,7 @@ const schoolIcon = new myIconClass({iconUrl: yellowURL}),
 // storing colors in variables, to make it easier to change all the related features at once
 let schoolCol = 'yellow',
     churchCol = 'green',
-    prisonCol = 'grey',
+    africvilleCol = 'grey',
     hospitalCol = 'rgb(40,40,120)',
     railwayCol = 'blue';
 
@@ -87,38 +87,38 @@ let schoolCol = 'yellow',
 // but writing them this way keeps the code as D.R.Y. as possible
 let churchMarkerInfo =
     [
-        {position: [-63.6212682723999,-1.5944015979766843],
+        {position: [44.67173538250303, -63.620238304138184],
             title: "Seaview United Baptist Church",
             description: '<p>Built by the Africville community, it was the center of life and many members were baptised in the nearby water of Bedford Basin.</p>'
         },
-        {position: [-63.61865043640137,44.6684087060401],
+        {position: [44.6684087060401, -63.61946582794189],
             title: "Rockwood Prison",
             description: `<p>This prison was located near the Africville community after the residents of Halifax criticized its construction near Halifax.</p>`
         },
-        {position: [-63.61963748931885,44.66950744598924],
+        {position: [44.66950744598924, -63.61963748931885],
          title: "Infectious Diseases Hospital",
          description: `<p>Another structure Haligonians refused to have near their city. This hospital was instead built near Africville.</p>`
         },
-        {position: [ -63.62053871154786, 44.67167434428751 ],
+        {position: [44.67167434428751, -63.62053871154786],
          title: "Railway Lines",
          description: "<p>The government built these railway lines for freight trains, in the midst of Africville, displacing and destroying several properties. Some house owners were not compesated for their loss.</p>"
         },
-        {position: [ -63.616805076599114, 44.671765901586674 ],
+        {position: [44.671765901586674, -63.616805076599114],
          title: "Africville School",
          icon: railwayIcon,
          description: `<p>Buiilt by Africville residents for Africville students. This school survived until the 1950's when Nova Scotia desegregation ended the existence of segregated schools.</p>`}
     ],
     africvilleNow =
-    [{position: [-63.61865043640137,-1.5951092937469482],
-      title: "Dumbledore Lies Dying",
-      description: "<p>Afflicted by a curse for over a year, and gravely weakened by a powerful poison, Dumbledore lies on the ground, barely mobile.</p>"
+    [{position: [44.67374960755104, -63.61946582794189],
+      title: "Africville Museum",
+      description: "<p>The Africville Museum exists in a replica of the Seaview Church. The Church was built as part of the City of Halifax's apology to the residents of Africville.</p>"
      }];
 
 
 let africvilleNowMarkers = processMarkerLayer(africvilleNow,
-                                     {description: 'Gryffindor: People and Places', defaultIcon: schoolIcon}),
+                                     {description: 'Africville in the 21st century', defaultIcon: schoolIcon}),
     africvilleThenMarkers = processMarkerLayer(churchMarkerInfo,
-                                      {description: 'Slytherin: Peple and Places', defaultIcon: churchIcon});
+                                      {description: 'Africville Before to its Destruction', defaultIcon: churchIcon});
 
 
 
@@ -133,144 +133,29 @@ let africvilleNowMarkers = processMarkerLayer(africvilleNow,
 // you can create geoJSON layers here: http://geojson.io/
 // and learn more about the format here: https://en.wikipedia.org/wiki/GeoJSON
 // to set the line and fill color, you will need to set the `myColor` property as below. 
-const townsData={
+const africvilleData={
     "type": "FeatureCollection",
-    "description": "Magical Municipalities",
+    "description": "The Neighborhood of Africville",
   "features": [
     {
       "type": "Feature",
-        "properties": {myColor: prisonCol, title: "Hogwarts School", description: "Terrifying events are commonplace here." },
+        "properties": {myColor: africvilleCol, title: "Region", description: "Africville before it was razed in 1969." },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
-          [
-            [
-              -63.6157214641571,
-              44.676122335885175
-            ],
-            [
-              -63.61589312553406,
-              44.676122335885175
-            ],
-            [
-              -63.61697137355804,
-              44.675786650316766
-            ],
-            [
-              -63.61728250980377,
-              44.675687470117595
-            ],
-            [
-              -63.617438077926636,
-              44.675630250694695
-            ],
-            [
-              -63.617556095123284,
-              44.67558828974866
-            ],
-            [
-              -63.61786723136902,
-              44.675450962803765
-            ],
-            [
-              -63.61814081668853,
-              44.67548147993075
-            ],
-            [
-              -63.618677258491516,
-              44.67538229920926
-            ],
-            [
-              -63.618972301483154,
-              44.67525641574139
-            ],
-            [ -63.61961603164673, 44.674966501260116], [ -63.62007737159729, 44.67463080899613], [ -63.62072110176087, 44.67381445833061], [ -63.62087666988372, 44.67332998310574], [ -63.621021509170525, 44.673154502891265], [ -63.6222767829895, 44.672788281601655], [ -63.6236447095871, 44.67331472397775], [ -63.62427234649658, 44.67227709384862], [ -63.62465858459473, 44.671624750690114], [ -63.625023365020745, 44.67152937826808], [ -63.62532377243042, 44.67162856558371], [ -63.62626791000366, 44.670007213171736], [ -63.62708330154418, 44.66859946099759], [ -63.62869262695312, 44.66580865337823], [ -63.62913250923156, 44.66593074209955], [ -63.62919688224792, 44.665820099206776], [ -63.62915933132171, 44.66580865337823], [ -63.62919688224792, 44.66574188599999], [ -63.62927198410034, 44.665755239481804], [ -63.62937122583389, 44.665707548461256], [ -63.629462420940406, 44.665615981591806], [ -63.62965285778046, 44.665322203575954], [ -63.62989693880081, 44.66489297977218], [ -63.63037973642349, 44.66405169189775], [ -63.630540668964386, 44.664003999475696], [ -63.63063722848892, 44.66379415235255], [ -63.630771338939674, 44.663767444482396], [ -63.62839221954345, 44.66245683602301], [ -63.62654685974121, 44.66254840788247], [ -63.62302780151367, 44.66245683602301], [ -63.619680404663086, 44.66624168565023], [ -63.616504669189446, 44.67191849676381], [ -63.61538887023926, 44.67338339002207], [ -63.614466190338135, 44.6745583297293], [ -63.614251613616936, 44.67579618686543], [ -63.61445814371109, 44.675670304296666], [ -63.61468344926834, 44.675630250694695], [ -63.6153244972229, 44.675807630721756], [ -63.615469336509705, 44.67601361974923], [ -63.61554712057114, 44.67608418989579], [-63.6157214641571, 44.676122335885175]]
+          [ [ -63.6157214641571, 44.676122335885175 ], [ -63.61589312553406, 44.676122335885175 ], [ -63.61697137355804, 44.675786650316766 ], [ -63.61728250980377, 44.675687470117595 ], [ -63.617438077926636, 44.675630250694695 ], [ -63.617556095123284, 44.67558828974866 ], [ -63.61786723136902, 44.675450962803765 ], [ -63.61814081668853, 44.67548147993075 ], [ -63.618677258491516, 44.67538229920926 ], [ -63.618972301483154, 44.67525641574139 ], [ -63.61961603164673, 44.674966501260116], [ -63.62007737159729, 44.67463080899613], [ -63.62072110176087, 44.67381445833061], [ -63.62087666988372, 44.67332998310574], [ -63.621021509170525, 44.673154502891265], [ -63.6222767829895, 44.672788281601655], [ -63.6236447095871, 44.67331472397775], [ -63.62427234649658, 44.67227709384862], [ -63.62465858459473, 44.671624750690114], [ -63.625023365020745, 44.67152937826808], [ -63.62532377243042, 44.67162856558371], [ -63.62626791000366, 44.670007213171736], [ -63.62708330154418, 44.66859946099759], [ -63.62869262695312, 44.66580865337823], [ -63.62913250923156, 44.66593074209955], [ -63.62919688224792, 44.665820099206776], [ -63.62915933132171, 44.66580865337823], [ -63.62919688224792, 44.66574188599999], [ -63.62927198410034, 44.665755239481804], [ -63.62937122583389, 44.665707548461256], [ -63.629462420940406, 44.665615981591806], [ -63.62965285778046, 44.665322203575954], [ -63.62989693880081, 44.66489297977218], [ -63.63037973642349, 44.66405169189775], [ -63.630540668964386, 44.664003999475696], [ -63.63063722848892, 44.66379415235255], [ -63.630771338939674, 44.663767444482396], [ -63.62839221954345, 44.66245683602301], [ -63.62654685974121, 44.66254840788247], [ -63.62302780151367, 44.66245683602301], [ -63.619680404663086, 44.66624168565023], [ -63.616504669189446, 44.67191849676381], [ -63.61538887023926, 44.67338339002207], [ -63.614466190338135, 44.6745583297293], [ -63.614251613616936, 44.67579618686543], [ -63.61445814371109, 44.675670304296666], [ -63.61468344926834, 44.675630250694695], [ -63.6153244972229, 44.675807630721756], [ -63.615469336509705, 44.67601361974923], [ -63.61554712057114, 44.67608418989579], [-63.6157214641571, 44.676122335885175]]
         ]
       }
     }
-    // {
-    //   "type": "Feature",
-    //     "properties": {myColor: hospitalCol, title: "Town of Hogsmeade", description: "Home of Butterbeer"},
-    //   "geometry": {
-    //     "type": "Polygon",
-    //     "coordinates": [[[-1.6042613983154297,55.490701879667895],[-1.6042077541351318,55.49065933144361],[-1.6042184829711914,55.49068364472025],[-1.604926586151123,55.49031894399501],[-1.607351303100586,55.49065933144361],[-1.6081881523132324,55.489923847732406],[-1.6085636615753174,55.48901815057725],[-1.6068792343139648,55.48843460312515],[-1.6042506694793701,55.487723392980776],[-1.6029417514801023,55.48743161074576],[-1.600785255432129,55.48822792799636],[-1.5991652011871336,55.48898167911473],[-1.599959135055542,55.490033259401876],[-1.5986931324005127,55.491479896236754],[-1.5987253189086914,55.49171694510582],[-1.5996050834655762,55.49194791442662],[-1.6010427474975586,55.49192360193031],[-1.6019654273986814,55.49204516426178],[-1.6025233268737793,55.491795961078495],[-1.6033065319061277,55.491340097517046],[-1.6042613983154297,55.490701879667895]]        ]
-    //   }
-    // }
   ]
 }
 
-let towns = processJSONLayer(townsData)
+let towns = processJSONLayer(africvilleData)
 
 ////////////////////////////////////////////////////////
 // MAP DATA PART 3: DIRECT CREATION OF SHAPE OVERLAYS //
 ////////////////////////////////////////////////////////
 
-
-// Hogwarts Buildings Objects and LayerGroup
-// API docs: https://leafletjs.com/reference-1.5.0.html#polygon
-//  (keep scrolling for docs on rectangles and circles)
-let gryffindor = L.rectangle([[ 55.49021561150901, -1.5941441059112549],
-                              [55.49107265510559,-1.5931355953216553]], {
-    color: schoolCol,
-    opacity: 0.8,
-    weight: 2,
-    fillColor: schoolCol,
-    fillOpacity: 0.35,
-    title: 'Gryffindor',
-    windowContent: `<h3>Gryffindor</h3><p>The Good Guys Live here</p3>`
-});
-
-let slytherin = L.rectangle([[ 55.48954090449621, -1.5956997871398926], [55.490288552115494, -1.594712734222412]], {
-    color: schoolCol,
-    opacity: 0.8,
-    weight: 2,
-    fillColor: churchCol,
-    fillOpacity: 0.35,
-    title: 'Slytherin',
-    windowContent: `<h3>Slytherin</h3><p>The Bad Guys Live here</p3>`
-});
-
-let headmasterTower = L.circle([55.4907, -1.5944], {
-    color: railwayCol,
-    opacity: 0.8,
-    weight: 2,
-    fillColor: railwayCol,
-    fillOpacity: 0.35,
-    radius: 40,
-    title: 'Headmaster\'s Tower',
-    windowContent: `<h3>Headmaster's Tower</h3><p>Scene of the the Fatal Act.</p>`
-});
-
-let houses = processManualLayers([gryffindor, slytherin, headmasterTower],
-                                 {description: 'Important Hogwarts Buildings'});
-
-
-
-
-// Polyline Objects and Layer Group ("paths")
-let vanishingPath = L.polyline([[51.37178037591737, -0.2197265625],
-                                [55.36857598381045, -1.7512893676757812],
-                                [-63.6212682723999,-1.5944015979766843 ]], {
-                                    color: churchCol,
-                                    weight: 6,
-                                    title: 'DeathEaters Travel',
-                                    windowContent: `<h3>Line of Travel for Deatheaters</h3><p>From the twin Vanishing Cabinet, the Deatheraters can travel directly from Bourquin and Burkes</p>`})
-
-
-let tunnelPath = L.polyline([[55.49065933144361,-1.6042077541351318],
-                                [55.49027247517858,-1.5943015979766843 ]], {
-                                    color: schoolCol,
-                                    weight: 6,
-                                    title: 'Tunnel to Hogsmeade',
-                                    windowContent: `<h3>Marauders' Map Tunnel</h3><p>Not really sure why this worked in the first ocuple of books.</p>`})
-
-let horcruxPath = L.polyline([[-63.61865043640137,-1.5951092937469482],
-                              [-63.61963748931885,44.66950744598924]], {
-                                  color: schoolCol,
-                                  weight: 4,
-                                  title: 'Return from Horcrux quest',
-                                  windowContent: `<h3>Return Disapparation from Failed Horcrux quest</h3><p>Exhaisted and grieviously injured, Dumbledore returns to find the trap he had so long expected has been sprung.</p>`})
-let paths = processManualLayers([vanishingPath, tunnelPath, horcruxPath], {description: 'Paths'})
 
 
 ////////////////////////////////////////////////
@@ -278,7 +163,7 @@ let paths = processManualLayers([vanishingPath, tunnelPath, horcruxPath], {descr
 // these layers will be added to the map
 // you should change these variable names
 // to align with the variables you've defiend above
-let allLayers = [africvilleNowMarkers, africvilleThenMarkers, towns, houses, paths];
+let allLayers = [africvilleNowMarkers, africvilleThenMarkers, towns];
 
 
 ///////////////////////////////////////
