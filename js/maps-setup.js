@@ -25,8 +25,8 @@
 
 // map initialization variables
 let projectMap, // this will hold the map once it's initialized
-    myCenter = [ 55.4907, -1.594], // *latitude*, then longitude
-    myZoom = 7; // set your preferred zoom here. higher number is closer in.
+    myCenter =  [ 44.6605, -63.6070 ], // *latitude*, then longitude
+    myZoom = 14; // set your preferred zoom here. higher number is closer in.
                 // I set the zoom wide to give access to context before zooming in
 
 
@@ -50,17 +50,17 @@ const myIconClass = L.Icon.extend({
     }});
 // create the new icon types -- cf. https://leafletjs.com/examples/custom-icons/ and
 // also https://leafletjs.com/reference-1.5.0.html#icon
-const gryfIcon = new myIconClass({iconUrl: yellowURL}),
-      slythIcon = new myIconClass({iconUrl: greenURL}),
-      mysteryIcon = new myIconClass({iconUrl: greyURL});
+const schoolIcon = new myIconClass({iconUrl: yellowURL}),
+      churchIcon = new myIconClass({iconUrl: greenURL}),
+      railwayIcon = new myIconClass({iconUrl: greyURL});
 
 
 // storing colors in variables, to make it easier to change all the related features at once
-let gryfCol = 'yellow',
-    slythCol = 'green',
-    hogCol = 'grey',
-    meadeCol = 'rgb(40,40,120)',
-    towerCol = 'blue';
+let schoolCol = 'yellow',
+    churchCol = 'green',
+    prisonCol = 'grey',
+    hospitalCol = 'rgb(40,40,120)',
+    railwayCol = 'blue';
 
 ///////////////////////////////////////////////////////////////////////
 // CHANGE THESE VARIABLE NAMES AND THEIR VALUES TO SUIT YOUR PROJECT //
@@ -85,38 +85,40 @@ let gryfCol = 'yellow',
 // These are placeholder arrays; we use them to generate other JS variables
 // that will be more useful to us later on
 // but writing them this way keeps the code as D.R.Y. as possible
-let slythMarkerInfo =
+let churchMarkerInfo =
     [
-        {position: [55.48997247517858,-1.5944015979766843],
-         title: "Room of Requirement",
-         description: '<p>one half of the Cabinet is located here.</p>'
+        {position: [-63.6212682723999,-1.5944015979766843],
+            title: "Seaview United Baptist Church",
+            description: '<p>Built by the Africville community, it was the center of life and many members were baptised in the nearby water of Bedford Basin.</p>'
         },
-        {position: [55.49058639152367,-1.5940092937469482],
-         title: "Fenrir Greyback",
-         description: `<p>An evil and spiteful werewolf, he thirsts for blood and impatiently awaits Dumbledore's demise.</p>`
+        {position: [-63.61865043640137,44.6684087060401],
+            title: "Rockwood Prison",
+            description: `<p>This prison was located near the Africville community after the residents of Halifax criticized its construction near Halifax.</p>`
         },
-        {position: [55.61679475360749,-1.6392910480499268],
-         title: "Isle of the Locket",
-         description: `<p>A forlorn and terrifying sea cave, guarded by an army of the undead and many other magical protections</p>`},
-        {position: [ 55.49086601004396, -1.5939261297996548 ],
-         title: "Draco Malfoy",
-         description: "<p>Weak-willed, dissatisfied, and a natural bully, Draco Malfoy has nonetheless plotted the murder of his own headmaster.</p>"},
-        {position: [ 55.49046495468512, -1.5939583064545149 ],
-         title: "Severus Snape",
-         icon: mysteryIcon,
-         description: `<p>what drives him? How has he survived so long with so much decption, such intense longing, guilt, and hatred?`}
+        {position: [-63.61963748931885,44.66950744598924],
+         title: "Infectious Diseases Hospital",
+         description: `<p>Another structure Haligonians refused to have near their city. This hospital was instead built near Africville.</p>`
+        },
+        {position: [ -63.62053871154786, 44.67167434428751 ],
+         title: "Railway Lines",
+         description: "<p>The government built these railway lines for freight trains, in the midst of Africville, displacing and destroying several properties. Some house owners were not compesated for their loss.</p>"
+        },
+        {position: [ -63.616805076599114, 44.671765901586674 ],
+         title: "Africville School",
+         icon: railwayIcon,
+         description: `<p>Buiilt by Africville residents for Africville students. This school survived until the 1950's when Nova Scotia desegregation ended the existence of segregated schools.</p>`}
     ],
-    gryfMarkerInfo =
-    [{position: [55.49058639152367,-1.5951092937469482],
+    africvilleNow =
+    [{position: [-63.61865043640137,-1.5951092937469482],
       title: "Dumbledore Lies Dying",
       description: "<p>Afflicted by a curse for over a year, and gravely weakened by a powerful poison, Dumbledore lies on the ground, barely mobile.</p>"
      }];
 
 
-let gryfMarkers = processMarkerLayer(gryfMarkerInfo,
-                                     {description: 'Gryffindor: People and Places', defaultIcon: gryfIcon}),
-    slythMarkers = processMarkerLayer(slythMarkerInfo,
-                                      {description: 'Slytherin: Peple and Places', defaultIcon: slythIcon});
+let africvilleNowMarkers = processMarkerLayer(africvilleNow,
+                                     {description: 'Gryffindor: People and Places', defaultIcon: schoolIcon}),
+    africvilleThenMarkers = processMarkerLayer(churchMarkerInfo,
+                                      {description: 'Slytherin: Peple and Places', defaultIcon: churchIcon});
 
 
 
@@ -137,22 +139,63 @@ const townsData={
   "features": [
     {
       "type": "Feature",
-        "properties": {myColor: hogCol, title: "Hogwarts School", description: "Terrifying events are commonplace here." },
+        "properties": {myColor: prisonCol, title: "Hogwarts School", description: "Terrifying events are commonplace here." },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
-            [[-1.5929424762725828,55.49200869560172],[-1.5931355953216553,55.491753414035976],[-1.5934574604034424,55.49184458621365],[-1.5935111045837402,55.49174125772966],[-1.5935754776000977,55.491552834502244],[-1.5937042236328125,55.4914069578362],[-1.5939724445343018,55.491212454774455],[-1.5942513942718506,55.4911152028834],[-1.5946805477142334,55.491084811618215],[-1.595292091369629,55.4910604985892],[-1.595635414123535,55.49106657684784],[-1.5957105159759521,55.491121281133644],[-1.5959036350250244,55.49102402901751],[-1.5959250926971436,55.49093285494058],[-1.5960323810577393,55.49078697597856],[-1.5962040424346924,55.49052560815388],[-1.5962576866149902,55.49022168989803],[-1.5962469577789307,55.49010620034601],[-1.5961718559265137,55.48994208303175],[-1.5960967540740967,55.489765808117795],[-1.5959680080413818,55.48957737544101],[-1.5957856178283691,55.48941933443642],[-1.5954852104187012,55.489291685469844],[-1.5952062606811523,55.489255214260574],[-1.5951526165008545,55.48916403608966],[-1.5947985649108887,55.48930384253212],[-1.5947234630584717,55.489364627787104],[-1.5943479537963867,55.48943756996929],[-1.5939295291900633,55.48960776786919],[-1.5937042236328125,55.489711101949666],[-1.5934574604034424,55.48978404349032],[-1.5933179855346677,55.48978404349032],[-1.593436002731323,55.48990561242462],[-1.5932321548461914,55.49002110256471],[-1.593017578125,55.490094043531386],[-1.5929424762725828,55.49039796277202],[-1.5928030014038086,55.49066540976418],[-1.5927600860595703,55.49105442032959],[-1.5926849842071533,55.49143127065138],[-1.5926635265350342,55.491704788788255],[-1.5925991535186768,55.49185066435133],[-1.5929424762725828,55.49200869560172]]
+          [
+            [
+              -63.6157214641571,
+              44.676122335885175
+            ],
+            [
+              -63.61589312553406,
+              44.676122335885175
+            ],
+            [
+              -63.61697137355804,
+              44.675786650316766
+            ],
+            [
+              -63.61728250980377,
+              44.675687470117595
+            ],
+            [
+              -63.617438077926636,
+              44.675630250694695
+            ],
+            [
+              -63.617556095123284,
+              44.67558828974866
+            ],
+            [
+              -63.61786723136902,
+              44.675450962803765
+            ],
+            [
+              -63.61814081668853,
+              44.67548147993075
+            ],
+            [
+              -63.618677258491516,
+              44.67538229920926
+            ],
+            [
+              -63.618972301483154,
+              44.67525641574139
+            ],
+            [ -63.61961603164673, 44.674966501260116], [ -63.62007737159729, 44.67463080899613], [ -63.62072110176087, 44.67381445833061], [ -63.62087666988372, 44.67332998310574], [ -63.621021509170525, 44.673154502891265], [ -63.6222767829895, 44.672788281601655], [ -63.6236447095871, 44.67331472397775], [ -63.62427234649658, 44.67227709384862], [ -63.62465858459473, 44.671624750690114], [ -63.625023365020745, 44.67152937826808], [ -63.62532377243042, 44.67162856558371], [ -63.62626791000366, 44.670007213171736], [ -63.62708330154418, 44.66859946099759], [ -63.62869262695312, 44.66580865337823], [ -63.62913250923156, 44.66593074209955], [ -63.62919688224792, 44.665820099206776], [ -63.62915933132171, 44.66580865337823], [ -63.62919688224792, 44.66574188599999], [ -63.62927198410034, 44.665755239481804], [ -63.62937122583389, 44.665707548461256], [ -63.629462420940406, 44.665615981591806], [ -63.62965285778046, 44.665322203575954], [ -63.62989693880081, 44.66489297977218], [ -63.63037973642349, 44.66405169189775], [ -63.630540668964386, 44.664003999475696], [ -63.63063722848892, 44.66379415235255], [ -63.630771338939674, 44.663767444482396], [ -63.62839221954345, 44.66245683602301], [ -63.62654685974121, 44.66254840788247], [ -63.62302780151367, 44.66245683602301], [ -63.619680404663086, 44.66624168565023], [ -63.616504669189446, 44.67191849676381], [ -63.61538887023926, 44.67338339002207], [ -63.614466190338135, 44.6745583297293], [ -63.614251613616936, 44.67579618686543], [ -63.61445814371109, 44.675670304296666], [ -63.61468344926834, 44.675630250694695], [ -63.6153244972229, 44.675807630721756], [ -63.615469336509705, 44.67601361974923], [ -63.61554712057114, 44.67608418989579], [-63.6157214641571, 44.676122335885175]]
         ]
       }
-    },
-    {
-      "type": "Feature",
-        "properties": {myColor: meadeCol, title: "Town of Hogsmeade", description: "Home of Butterbeer"},
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[[-1.6042613983154297,55.490701879667895],[-1.6042077541351318,55.49065933144361],[-1.6042184829711914,55.49068364472025],[-1.604926586151123,55.49031894399501],[-1.607351303100586,55.49065933144361],[-1.6081881523132324,55.489923847732406],[-1.6085636615753174,55.48901815057725],[-1.6068792343139648,55.48843460312515],[-1.6042506694793701,55.487723392980776],[-1.6029417514801023,55.48743161074576],[-1.600785255432129,55.48822792799636],[-1.5991652011871336,55.48898167911473],[-1.599959135055542,55.490033259401876],[-1.5986931324005127,55.491479896236754],[-1.5987253189086914,55.49171694510582],[-1.5996050834655762,55.49194791442662],[-1.6010427474975586,55.49192360193031],[-1.6019654273986814,55.49204516426178],[-1.6025233268737793,55.491795961078495],[-1.6033065319061277,55.491340097517046],[-1.6042613983154297,55.490701879667895]]        ]
-      }
     }
+    // {
+    //   "type": "Feature",
+    //     "properties": {myColor: hospitalCol, title: "Town of Hogsmeade", description: "Home of Butterbeer"},
+    //   "geometry": {
+    //     "type": "Polygon",
+    //     "coordinates": [[[-1.6042613983154297,55.490701879667895],[-1.6042077541351318,55.49065933144361],[-1.6042184829711914,55.49068364472025],[-1.604926586151123,55.49031894399501],[-1.607351303100586,55.49065933144361],[-1.6081881523132324,55.489923847732406],[-1.6085636615753174,55.48901815057725],[-1.6068792343139648,55.48843460312515],[-1.6042506694793701,55.487723392980776],[-1.6029417514801023,55.48743161074576],[-1.600785255432129,55.48822792799636],[-1.5991652011871336,55.48898167911473],[-1.599959135055542,55.490033259401876],[-1.5986931324005127,55.491479896236754],[-1.5987253189086914,55.49171694510582],[-1.5996050834655762,55.49194791442662],[-1.6010427474975586,55.49192360193031],[-1.6019654273986814,55.49204516426178],[-1.6025233268737793,55.491795961078495],[-1.6033065319061277,55.491340097517046],[-1.6042613983154297,55.490701879667895]]        ]
+    //   }
+    // }
   ]
 }
 
@@ -168,30 +211,30 @@ let towns = processJSONLayer(townsData)
 //  (keep scrolling for docs on rectangles and circles)
 let gryffindor = L.rectangle([[ 55.49021561150901, -1.5941441059112549],
                               [55.49107265510559,-1.5931355953216553]], {
-    color: gryfCol,
+    color: schoolCol,
     opacity: 0.8,
     weight: 2,
-    fillColor: gryfCol,
+    fillColor: schoolCol,
     fillOpacity: 0.35,
     title: 'Gryffindor',
     windowContent: `<h3>Gryffindor</h3><p>The Good Guys Live here</p3>`
 });
 
 let slytherin = L.rectangle([[ 55.48954090449621, -1.5956997871398926], [55.490288552115494, -1.594712734222412]], {
-    color: gryfCol,
+    color: schoolCol,
     opacity: 0.8,
     weight: 2,
-    fillColor: slythCol,
+    fillColor: churchCol,
     fillOpacity: 0.35,
     title: 'Slytherin',
     windowContent: `<h3>Slytherin</h3><p>The Bad Guys Live here</p3>`
 });
 
 let headmasterTower = L.circle([55.4907, -1.5944], {
-    color: towerCol,
+    color: railwayCol,
     opacity: 0.8,
     weight: 2,
-    fillColor: towerCol,
+    fillColor: railwayCol,
     fillOpacity: 0.35,
     radius: 40,
     title: 'Headmaster\'s Tower',
@@ -207,8 +250,8 @@ let houses = processManualLayers([gryffindor, slytherin, headmasterTower],
 // Polyline Objects and Layer Group ("paths")
 let vanishingPath = L.polyline([[51.37178037591737, -0.2197265625],
                                 [55.36857598381045, -1.7512893676757812],
-                                [55.48997247517858,-1.5944015979766843 ]], {
-                                    color: slythCol,
+                                [-63.6212682723999,-1.5944015979766843 ]], {
+                                    color: churchCol,
                                     weight: 6,
                                     title: 'DeathEaters Travel',
                                     windowContent: `<h3>Line of Travel for Deatheaters</h3><p>From the twin Vanishing Cabinet, the Deatheraters can travel directly from Bourquin and Burkes</p>`})
@@ -216,14 +259,14 @@ let vanishingPath = L.polyline([[51.37178037591737, -0.2197265625],
 
 let tunnelPath = L.polyline([[55.49065933144361,-1.6042077541351318],
                                 [55.49027247517858,-1.5943015979766843 ]], {
-                                    color: gryfCol,
+                                    color: schoolCol,
                                     weight: 6,
                                     title: 'Tunnel to Hogsmeade',
                                     windowContent: `<h3>Marauders' Map Tunnel</h3><p>Not really sure why this worked in the first ocuple of books.</p>`})
 
-let horcruxPath = L.polyline([[55.49058639152367,-1.5951092937469482],
-                              [55.61679475360749,-1.6392910480499268]], {
-                                  color: gryfCol,
+let horcruxPath = L.polyline([[-63.61865043640137,-1.5951092937469482],
+                              [-63.61963748931885,44.66950744598924]], {
+                                  color: schoolCol,
                                   weight: 4,
                                   title: 'Return from Horcrux quest',
                                   windowContent: `<h3>Return Disapparation from Failed Horcrux quest</h3><p>Exhaisted and grieviously injured, Dumbledore returns to find the trap he had so long expected has been sprung.</p>`})
@@ -235,7 +278,7 @@ let paths = processManualLayers([vanishingPath, tunnelPath, horcruxPath], {descr
 // these layers will be added to the map
 // you should change these variable names
 // to align with the variables you've defiend above
-let allLayers = [gryfMarkers, slythMarkers, towns, houses, paths];
+let allLayers = [africvilleNowMarkers, africvilleThenMarkers, towns, houses, paths];
 
 
 ///////////////////////////////////////
