@@ -19,7 +19,7 @@ References:
 ([McRae, Canadian Museum for Human Rights](https://humanrights.ca/story/the-story-of-africville))</br>
 ([CBC News](https://www.cbc.ca/news/canada/nova-scotia/halifax-apologizes-for-razing-africville-1.894944))</br>
 ([Tattrie, Canadian Encyclopedia](https://www.thecanadianencyclopedia.ca/en/article/africville))</br>
-([Africville Museum](https://africvillemuseum.org/education-resources/resource-links/))
+([Africville Museum](https://africvillemuseum.org/education-resources/resource-links/))</br>
 ([Nova Scotia Archives](https://novascotia.ca/archives/explosion/results.asp?Search=&SearchList1=all))</br>
 ([Halifax Archives](https://www.halifax.ca/sites/default/files/documents/about-the-city/archives/HH-5-7597b_0.pdf))</br>
 ([Halifax Archives](https://www.halifax.ca/sites/default/files/documents/about-the-city/archives/DD-4-8154Combined_MobileOptimization_0.pdf))</br>
