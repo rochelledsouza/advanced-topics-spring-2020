@@ -27,6 +27,7 @@
     "json-validation": "1.0.4",
     "jsonlint": "1.6.3",
     "live-server": "^1.2.1",
+    "local-web-server": "^4.2.0",
     "markdown-it": "^10.0.0",
     "mocha": "6.2.2",
     "mocha-pretty-spec-reporter": "0.1.0-beta.2",
