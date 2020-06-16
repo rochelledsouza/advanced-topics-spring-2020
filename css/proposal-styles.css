@@ -5,13 +5,13 @@
 
 section#intro {
     grid-area: intro;
-    background-color: lightgoldenrodyellow;
-    border: 0.5px solid navy;
+    background-color: #fff8dc;
+    border: 0.5px solid goldenrod;
 }
 
 
 section#maintext {
     grid-area: main;
-    background-color: lightgoldenrodyellow;
-    border: 0.5px solid navy;
+    background-color: cornsilk;
+    border: 0.5px solid goldenrod;
 }
