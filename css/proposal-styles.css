@@ -1,0 +1,17 @@
+.main-container {
+    grid-template-areas: "intro" "main";
+    grid-auto-columns: 1fr;
+}
+
+section#intro {
+    grid-area: intro;
+    background-color: lightgoldenrodyellow;
+    border: 0.5px solid navy;
+}
+
+
+section#maintext {
+    grid-area: main;
+    background-color: lightgoldenrodyellow;
+    border: 0.5px solid navy;
+}

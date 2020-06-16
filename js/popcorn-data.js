@@ -49,19 +49,19 @@ var loadPopcorn = function () {
     text: "RFK's Legacy and Death",
     target: "popcorn-container"
   });
-  pop.footnote({
-    src:"https://en.wikipedia.org/wiki/Verrazano%E2%80%93Narrows_Bridge",
-    start: 50,
-    end: 90,
-    text: "Verrazano Narrows Bridge",
-    target: "popcorn-container"
-  });
+  // pop.footnote({
+  //   src:"https://en.wikipedia.org/wiki/Verrazano%E2%80%93Narrows_Bridge",
+  //   start: 50,
+  //   end: 90,
+  //   text: "Verrazano Narrows Bridge",
+  //   target: "popcorn-container"
+  // });
 
   // and, obviously, the image plugin
-  pop.image({
-    start: 121,
-    end: 180,
-    src:"http://www.theblaze.com/wp-content/uploads/2013/03/steel-worker-2-620x432.jpg",
+  pop.webpage({
+    start: 75,
+    end: 115,
+    src:"https://www.jfklibrary.org/learn/about-jfk/the-kennedy-family/robert-f-kennedy",
     text: "resting",
     target: "popcorn-container"
   });
